@@ -17,7 +17,7 @@ SplitAt::usage="";
 MultipleDrop::usage="";
 OrderBy::usage="";
 Duplicates::usage="";
-RelativeFrequencies::usage="";
+
 
 Begin["Private`"];
 
@@ -103,11 +103,6 @@ OrderBy[list_, ordering_] :=
 Duplicates[list_, foo_] :=
      Select[Union/@GatherBy[list,
      foo], Length@# > 1 &]
-
-RelativeFrequencies[set_] :=
-    With[ {l = Length[set]},
-        ({#1[[1]],(#1[[2]])/l}&)/@Tally[set]
-    ];
 
 End[];
 EndPackage[];
